@@ -14,8 +14,8 @@ export default function HomePopDest({ images }) {
     });
   };
   const swipeHandlers = useSwipeable({
-    onSwipedLeft: () => handleSwipe("left"),
-    onSwipedRight: () => handleSwipe("right"),
+    onSwipedLeft: () => scrollContainer("left"),
+    onSwipedRight: () => scrollContainer("right"),
     preventDefaultTouchmoveEvent: true,
     trackMouse: true
   });
