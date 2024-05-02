@@ -4,25 +4,12 @@ import { Card, CardFooter, CardContent } from "@/components/ui/card";
 
 export default function HomePopDest({ images }) {
   const cardContainerRef = useRef(null);
-  const prevScrollLeft = useRef(0);
   const scrollContainer = (direction) => {
     const scrollAmount = direction === "left" ? -300 : 300;
     cardContainerRef.current.scrollBy({
       left: scrollAmount,
       behavior: "smooth",
     });
-  };
-  const handleScroll = () => {
-    const container = cardContainerRef.current;
-    if (container) {
-      const scrollLeft = container.scrollLeft;
-      if (scrollLeft > prevScrollLeft.current) {
-        scrollContainer("right");
-      } else if (scrollLeft < prevScrollLeft.current) {
-        scrollContainer("left");
-      }
-      prevScrollLeft.current = scrollLeft;
-    }
   };
   return (
     <>
@@ -51,11 +38,7 @@ export default function HomePopDest({ images }) {
             <i class="fa-solid fa-angle-right"></i>
           </button>
         </div>
-        <div
-          className="flex overflow-hidden mt-5"
-          ref={cardContainerRef}
-          onScroll={handleScroll}
-        >
+        <div className="flex overflow-hidden mt-5" ref={cardContainerRef}>
           {images.map((image, index) => (
             <Card
               key={index}
