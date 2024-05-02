@@ -29,7 +29,7 @@ export default function HomeForm({ values }) {
         <div className="h-40 flex justify-start select-none mt-20">
           {/* Destination */}
           <div className="py-2 px-4 text-sm bg-white flex items-center">
-            <div style={{ overflowY: "scroll" }}>
+            <div>
               <label className="text-gray-500">DESTINATION</label>
               <Select>
                 <SelectTrigger className="w-48 h-12 bg-white outline-none rounded-none select-none border-0 font-serif text-gray-800 border-b-2 border-gray-700 p-4">
