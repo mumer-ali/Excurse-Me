@@ -102,9 +102,7 @@ export default function Home() {
     <>
       <div
         className="flex flex-col h-screen w-screen bg-cover bg-center bg-no-repeat bg-fixed"
-        style={{
-          backgroundImage: `url(${bgImage})`,
-        }}
+        style={{ backgroundImage: `url(${bgImage})` }}
       >
         <NavBar active="home" />
         <HomeText />
