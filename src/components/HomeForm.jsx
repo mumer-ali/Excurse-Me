@@ -37,9 +37,6 @@ export default function HomeForm({ values }) {
                 </SelectTrigger>
                 <SelectContent className="bg-white outline-none rounded-none select-none">
                   <SelectGroup>
-                    <SelectLabel className="font-serif text-gray-800">
-                      Europe
-                    </SelectLabel>
                     {values.map((value) => (
                       <SelectItem
                         value={value}
