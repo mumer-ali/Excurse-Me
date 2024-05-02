@@ -87,13 +87,9 @@ export default function HomePopDest({ images }) {
     });
   };
 
-  const handleSwipe = (direction) => {
-    scrollContainer(direction);
-  };
-
   const swipeHandlers = useSwipeable({
-    onSwipedLeft: () => handleSwipe("left"),
-    onSwipedRight: () => handleSwipe("right"),
+    onSwipedLeft: () => scrollContainer("left"),
+    onSwipedRight: () => scrollContainer("right"),
     preventDefaultTouchmoveEvent: true,
     trackMouse: true,
   });
@@ -125,7 +121,7 @@ export default function HomePopDest({ images }) {
             <i class="fa-solid fa-angle-right"></i>
           </button>
         </div>
-        <div className="flex overflow-hidden mt-5" ref={cardContainerRef} {...swipeHandlers}>
+        <div className="flex overflow-hidden mt-5" ref={cardContainerRef}>
           {images.map((image, index) => (
             <Card
               key={index}
@@ -133,6 +129,7 @@ export default function HomePopDest({ images }) {
               style={{
                 backgroundImage: `url(${images[index][0]})`,
               }}
+              onScroll={() => {scrollContainer("left")}}
             >
               <CardContent></CardContent>
               <CardFooter>
