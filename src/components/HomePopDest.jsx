@@ -1,9 +1,11 @@
 import React from "react";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { Card, CardFooter, CardContent } from "@/components/ui/card";
+import { useSwipeable } from "react-swipeable";
 
 export default function HomePopDest({ images }) {
   const cardContainerRef = useRef(null);
+  const [startX, setStartX] = useState(0);
   const scrollContainer = (direction) => {
     const scrollAmount = direction === "left" ? -300 : 300;
     cardContainerRef.current.scrollBy({
@@ -11,6 +13,12 @@ export default function HomePopDest({ images }) {
       behavior: "smooth",
     });
   };
+  const swipeHandlers = useSwipeable({
+    onSwipedLeft: () => handleSwipe("left"),
+    onSwipedRight: () => handleSwipe("right"),
+    preventDefaultTouchmoveEvent: true,
+    trackMouse: true
+  });
   return (
     <>
       <div className="bg-white z-10 mt-12">
